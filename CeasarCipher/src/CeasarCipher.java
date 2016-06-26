@@ -25,7 +25,7 @@ public class CeasarCipher {
 		String result = "";
 		
 		if (shift < 0) {
-			shift %= 26 + 26;
+			shift = shift%26 + 26;
 		}
 		
 		for (int i = 0; i < str.length(); i++) {
