@@ -22,11 +22,14 @@ public class FacePamphletProfile implements FacePamphletConstants {
 	//instance variables
 	private String name = "";
 	private String status = "";
-	private GImage image = new GImage("StanfordTree.JPG");
+	private GImage image;
 	ArrayList<String> friends = new ArrayList<String>();
 	
 	public FacePamphletProfile(String _name) {
 		name = _name;
+		image = new GImage("StanfordTree.JPG");
+		image.setSize(IMAGE_WIDTH, IMAGE_HEIGHT);
+		status = "No current status";
 	}
 
 	/** This method returns the name associated with the profile. */ 

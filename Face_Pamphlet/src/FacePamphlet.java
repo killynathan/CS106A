@@ -40,6 +40,8 @@ public class FacePamphlet extends Program
   	
     private FacePamphletProfile currentProfile = null;
     
+    private FacePamphletProfile defaultProfile;
+    
     
 	public void init() {
 		//set application size
@@ -51,6 +53,9 @@ public class FacePamphlet extends Program
 		//initialize and add canvas
 		canvas = new FacePamphletCanvas();
 		add(canvas);
+		
+		//default profile
+		defaultProfile = new FacePamphletProfile("No Profile Selected");
 		
 		//creating interactors
 		name = new JTextField(TEXT_FIELD_SIZE);
@@ -123,12 +128,14 @@ public class FacePamphlet extends Program
     	
     	clearTextFields();
     	
-    	/*if (currentProfile != null) {
-    		println("current profile: " + currentProfile.toString());
+    	//update applicatoin screen
+    	if (currentProfile == null) {
+    		canvas.displayProfile(defaultProfile);
     	}
     	else {
-    		println("no current profile.");
-    	}*/
+    		canvas.displayProfile(currentProfile);
+    	}
+ 
 	}
     
     private void addProfile() {
